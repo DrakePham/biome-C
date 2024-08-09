@@ -1,0 +1,11 @@
+mutation {
+	addUser(userData: AddUserInput) {
+		id
+		name
+	}
+}
+
+input AddUserInput {
+	name: String
+	email: String
+}
