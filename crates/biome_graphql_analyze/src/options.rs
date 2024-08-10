@@ -2,6 +2,7 @@
 
 use crate::lint;
 
+pub type InputName = <lint::nursery::input_name::InputName as biome_analyze::Rule>::Options;
 pub type NoDuplicatedFields =
     <lint::nursery::no_duplicated_fields::NoDuplicatedFields as biome_analyze::Rule>::Options;
 pub type UseDeprecatedReason =
