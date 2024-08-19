@@ -1,2 +1,11 @@
-/* should not generate diagnostics */
-// var a = 1;
+mutation {
+	addUser(input: AddUserInput) {
+		id
+		name
+	}
+}
+
+input AddUserInput {
+	name: String
+	email: String
+}

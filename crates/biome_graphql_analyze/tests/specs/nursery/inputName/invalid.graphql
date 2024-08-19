@@ -1,3 +1,11 @@
-var a = 1;
-a = 2;
-a = 3;
+mutation {
+	addUser(userData: AddUserInput) {
+		id
+		name
+	}
+}
+
+input AddUserInput {
+	name: String
+	email: String
+}

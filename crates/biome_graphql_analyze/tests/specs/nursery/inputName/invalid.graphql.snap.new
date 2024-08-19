@@ -1,0 +1,19 @@
+---
+source: crates/biome_graphql_analyze/tests/spec_tests.rs
+assertion_line: 83
+expression: invalid.graphql
+---
+# Input
+```graphql
+mutation {
+	addUser(userData: AddUserInput) {
+		id
+		name
+	}
+}
+
+input AddUserInput {
+	name: String
+	email: String
+}
+```
