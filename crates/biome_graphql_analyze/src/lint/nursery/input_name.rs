@@ -1,9 +1,11 @@
-use biome_analyze::{context::RuleContext, declare_rule, Ast, Rule, RuleDiagnostic};
+use biome_analyze::{context::RuleContext, declare_lint_rule, Ast, Rule, RuleDiagnostic, RuleSource, RuleSourceKind};
+use biome_graphql_syntax::GraphqlFieldDefinition;
 use biome_console::markup;
-use biome_graphql_syntax::GraphqlRoot;
-use biome_rowan::AstNode;
+use biome_rowan::{AstNode, TextRange};
+// use biome_graphql_syntax::GraphqlRoot;
+// use biome_rowan::AstNode;
 
-declare_rule! {
+declare_lint_rule! {
     /// 
     /// Requires mutation argument to be always called "input" and input type to be called
     /// <MutationName> + "Input".
@@ -64,11 +66,6 @@ impl Rule for InputName {
         let field = ctx.query();
         let mut invalid_names = vec![];
 
-        // Double checks if we are within a mutation context
-        if !field.is_in_mutation_context(){
-            return invalid_names;
-        }
-
         // Checking for argument names
         if let Some(field_name) = field.name().ok(){
             let name = field_name.text();
@@ -86,7 +83,7 @@ impl Rule for InputName {
         invalid_names
     }
 
-    fn diagnostic(ctx: &RuleContext<Self>, _state: &Self::State) -> Vec<RuleDiagnostic> {
+    fn diagnostic(_ctx: &RuleContext<Self>, state: &Self::State) -> Option<RuleDiagnostic> {
         let InvalidInputName { name, text_range, kind } = state;
 
         let message = match kind {
@@ -101,6 +98,7 @@ impl Rule for InputName {
         ))
     }
 }
+
 
 #[derive(Debug)]
 pub enum InvalidNameKind {
