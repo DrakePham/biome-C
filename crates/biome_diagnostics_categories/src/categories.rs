@@ -114,7 +114,7 @@ define_categories! {
     "lint/correctness/useValidForDirection": "https://biomejs.dev/linter/rules/use-valid-for-direction",
     "lint/correctness/useYield": "https://biomejs.dev/linter/rules/use-yield",
     "lint/nursery/colorNoInvalidHex": "https://biomejs.dev/linter/rules/color-no-invalid-hex",
-    "lint/nursery/noColorInvalidHex": "https://biomejs.dev/linter/rules/no-color-invalid-hex",
+    "lint/nursery/inputNameConvention": "https://biomejs.dev/linter/rules/input-name",
     "lint/nursery/noConsole": "https://biomejs.dev/linter/rules/no-console",
     "lint/nursery/noDoneCallback": "https://biomejs.dev/linter/rules/no-done-callback",
     "lint/nursery/noDuplicateAtImportRules": "https://biomejs.dev/linter/rules/no-duplicate-at-import-rules",
@@ -169,6 +169,7 @@ define_categories! {
     "lint/nursery/useImportExtensions": "https://biomejs.dev/linter/rules/use-import-extensions",
     "lint/nursery/useImportRestrictions": "https://biomejs.dev/linter/rules/use-import-restrictions",
     "lint/nursery/useJsxCurlyBraceConvention": "https://biomejs.dev/linter/rules/use-jsx-curly-brace-convention",
+    "lint/nursery/useMutationInputName": "https://biomejs.dev/linter/rules/use-mutation-input-name",
     "lint/nursery/useNumberToFixedDigitsArgument": "https://biomejs.dev/linter/rules/use-number-to-fixed-digits-argument",
     "lint/nursery/useSemanticElements": "https://biomejs.dev/linter/rules/use-semantic-elements",
     "lint/nursery/useSortedClasses": "https://biomejs.dev/linter/rules/use-sorted-classes",
@@ -283,6 +284,7 @@ define_categories! {
     "lint/suspicious/useIsArray": "https://biomejs.dev/linter/rules/use-is-array",
     "lint/suspicious/useNamespaceKeyword": "https://biomejs.dev/linter/rules/use-namespace-keyword",
     "lint/suspicious/useValidTypeof": "https://biomejs.dev/linter/rules/use-valid-typeof",
+    // "lint/nursery/noColorInvalidHex": "https://biomejs.dev/linter/rules/no-color-invalid-hex",
     // end lint rules
     // start assists rules
     "assists/source/useSortedKeys": "https://biomejs.dev/linter/actions/use-sorted-keys",
