@@ -3060,6 +3060,10 @@ pub struct Nursery {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_import_restrictions:
         Option<RuleConfiguration<biome_js_analyze::options::UseImportRestrictions>>,
+    #[doc = "Succinct description of the rule."]
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub use_mutation_input_name:
+        Option<RuleConfiguration<biome_graphql_analyze::options::UseMutationInputName>>,
     #[doc = "Enforce using the digits argument with Number#toFixed()."]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub use_number_to_fixed_digits_argument:
@@ -3162,6 +3166,7 @@ impl Nursery {
         "useGenericFontNames",
         "useImportExtensions",
         "useImportRestrictions",
+        "useMutationInputName",
         "useNumberToFixedDigitsArgument",
         "useSemanticElements",
         "useSortedClasses",
@@ -3223,8 +3228,8 @@ impl Nursery {
         RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[43]),
         RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[46]),
         RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[47]),
-        RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[51]),
-        RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[53]),
+        RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[52]),
+        RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[54]),
     ];
     const ALL_RULES_AS_FILTERS: &'static [RuleFilter<'static>] = &[
         RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[0]),
@@ -3286,6 +3291,7 @@ impl Nursery {
         RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[56]),
         RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[57]),
         RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[58]),
+        RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[59]),
     ];
     #[doc = r" Retrieves the recommended rules"]
     pub(crate) fn is_recommended_true(&self) -> bool {
@@ -3552,49 +3558,54 @@ impl Nursery {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[49]));
             }
         }
-        if let Some(rule) = self.use_number_to_fixed_digits_argument.as_ref() {
+        if let Some(rule) = self.use_mutation_input_name.as_ref() {
             if rule.is_enabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[50]));
             }
         }
-        if let Some(rule) = self.use_semantic_elements.as_ref() {
+        if let Some(rule) = self.use_number_to_fixed_digits_argument.as_ref() {
             if rule.is_enabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[51]));
             }
         }
-        if let Some(rule) = self.use_sorted_classes.as_ref() {
+        if let Some(rule) = self.use_semantic_elements.as_ref() {
             if rule.is_enabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[52]));
             }
         }
-        if let Some(rule) = self.use_strict_mode.as_ref() {
+        if let Some(rule) = self.use_sorted_classes.as_ref() {
             if rule.is_enabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[53]));
             }
         }
-        if let Some(rule) = self.use_throw_new_error.as_ref() {
+        if let Some(rule) = self.use_strict_mode.as_ref() {
             if rule.is_enabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[54]));
             }
         }
-        if let Some(rule) = self.use_throw_only_error.as_ref() {
+        if let Some(rule) = self.use_throw_new_error.as_ref() {
             if rule.is_enabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[55]));
             }
         }
-        if let Some(rule) = self.use_top_level_regex.as_ref() {
+        if let Some(rule) = self.use_throw_only_error.as_ref() {
             if rule.is_enabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[56]));
             }
         }
-        if let Some(rule) = self.use_trim_start_end.as_ref() {
+        if let Some(rule) = self.use_top_level_regex.as_ref() {
             if rule.is_enabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[57]));
             }
         }
-        if let Some(rule) = self.use_valid_autocomplete.as_ref() {
+        if let Some(rule) = self.use_trim_start_end.as_ref() {
             if rule.is_enabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[58]));
+            }
+        }
+        if let Some(rule) = self.use_valid_autocomplete.as_ref() {
+            if rule.is_enabled() {
+                index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[59]));
             }
         }
         index_set
@@ -3851,49 +3862,54 @@ impl Nursery {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[49]));
             }
         }
-        if let Some(rule) = self.use_number_to_fixed_digits_argument.as_ref() {
+        if let Some(rule) = self.use_mutation_input_name.as_ref() {
             if rule.is_disabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[50]));
             }
         }
-        if let Some(rule) = self.use_semantic_elements.as_ref() {
+        if let Some(rule) = self.use_number_to_fixed_digits_argument.as_ref() {
             if rule.is_disabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[51]));
             }
         }
-        if let Some(rule) = self.use_sorted_classes.as_ref() {
+        if let Some(rule) = self.use_semantic_elements.as_ref() {
             if rule.is_disabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[52]));
             }
         }
-        if let Some(rule) = self.use_strict_mode.as_ref() {
+        if let Some(rule) = self.use_sorted_classes.as_ref() {
             if rule.is_disabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[53]));
             }
         }
-        if let Some(rule) = self.use_throw_new_error.as_ref() {
+        if let Some(rule) = self.use_strict_mode.as_ref() {
             if rule.is_disabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[54]));
             }
         }
-        if let Some(rule) = self.use_throw_only_error.as_ref() {
+        if let Some(rule) = self.use_throw_new_error.as_ref() {
             if rule.is_disabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[55]));
             }
         }
-        if let Some(rule) = self.use_top_level_regex.as_ref() {
+        if let Some(rule) = self.use_throw_only_error.as_ref() {
             if rule.is_disabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[56]));
             }
         }
-        if let Some(rule) = self.use_trim_start_end.as_ref() {
+        if let Some(rule) = self.use_top_level_regex.as_ref() {
             if rule.is_disabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[57]));
             }
         }
-        if let Some(rule) = self.use_valid_autocomplete.as_ref() {
+        if let Some(rule) = self.use_trim_start_end.as_ref() {
             if rule.is_disabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[58]));
+            }
+        }
+        if let Some(rule) = self.use_valid_autocomplete.as_ref() {
+            if rule.is_disabled() {
+                index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[59]));
             }
         }
         index_set
@@ -4130,6 +4146,10 @@ impl Nursery {
                 .map(|conf| (conf.level(), conf.get_options())),
             "useImportRestrictions" => self
                 .use_import_restrictions
+                .as_ref()
+                .map(|conf| (conf.level(), conf.get_options())),
+            "useMutationInputName" => self
+                .use_mutation_input_name
                 .as_ref()
                 .map(|conf| (conf.level(), conf.get_options())),
             "useNumberToFixedDigitsArgument" => self

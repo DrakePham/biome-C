@@ -1,0 +1,29 @@
+---
+source: crates/biome_graphql_analyze/tests/spec_tests.rs
+assertion_line: 83
+expression: invalid.graphql
+---
+# Input
+```graphql
+type Mutation {
+	SetMessage(message: SetMessageInput): String
+}
+
+```
+
+# Diagnostics
+```
+invalid.graphql:2:13 lint/nursery/useMutationInputName ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! The mutation argument `message` should be named `input` and its type should match the mutation name with 'Input' suffix.
+  
+    1 │ type Mutation {
+  > 2 │ 	SetMessage(message: SetMessageInput): String
+      │ 	           ^^^^^^^^^^^^^^^^^^^^^^^^
+    3 │ }
+    4 │ 
+  
+  i Rename the argument and its type according to the convention.
+  
+
+```

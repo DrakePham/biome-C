@@ -1327,6 +1327,10 @@ export interface Nursery {
 	 */
 	useImportRestrictions?: RuleConfiguration_for_Null;
 	/**
+	 * Succinct description of the rule.
+	 */
+	useMutationInputName?: RuleConfiguration_for_Null;
+	/**
 	 * Enforce using the digits argument with Number#toFixed().
 	 */
 	useNumberToFixedDigitsArgument?: RuleFixConfiguration_for_Null;
@@ -2671,6 +2675,7 @@ export type Category =
 	| "lint/nursery/useImportExtensions"
 	| "lint/nursery/useImportRestrictions"
 	| "lint/nursery/useJsxCurlyBraceConvention"
+	| "lint/nursery/useMutationInputName"
 	| "lint/nursery/useNumberToFixedDigitsArgument"
 	| "lint/nursery/useSemanticElements"
 	| "lint/nursery/useSortedClasses"

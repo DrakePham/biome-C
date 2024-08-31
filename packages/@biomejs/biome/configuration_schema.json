@@ -2207,6 +2207,13 @@
 						{ "type": "null" }
 					]
 				},
+				"useMutationInputName": {
+					"description": "Succinct description of the rule.",
+					"anyOf": [
+						{ "$ref": "#/definitions/RuleConfiguration" },
+						{ "type": "null" }
+					]
+				},
 				"useNumberToFixedDigitsArgument": {
 					"description": "Enforce using the digits argument with Number#toFixed().",
 					"anyOf": [

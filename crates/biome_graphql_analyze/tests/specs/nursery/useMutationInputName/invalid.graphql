@@ -1,0 +1,3 @@
+type Mutation {
+	SetMessage(message: SetMessageInput): String
+}

@@ -168,6 +168,7 @@ define_categories! {
     "lint/nursery/useImportExtensions": "https://biomejs.dev/linter/rules/use-import-extensions",
     "lint/nursery/useImportRestrictions": "https://biomejs.dev/linter/rules/use-import-restrictions",
     "lint/nursery/useJsxCurlyBraceConvention": "https://biomejs.dev/linter/rules/use-jsx-curly-brace-convention",
+    "lint/nursery/useMutationInputName": "https://biomejs.dev/linter/rules/use-mutation-input-name",
     "lint/nursery/useNumberToFixedDigitsArgument": "https://biomejs.dev/linter/rules/use-number-to-fixed-digits-argument",
     "lint/nursery/useSemanticElements": "https://biomejs.dev/linter/rules/use-semantic-elements",
     "lint/nursery/useSortedClasses": "https://biomejs.dev/linter/rules/use-sorted-classes",
